@@ -1,0 +1,9 @@
+node_modules/
+build/
+android/
+ios/
+*.config.js
+*.spec.ts
+*.spec.tsx
+*.test.ts
+*.test.tsx

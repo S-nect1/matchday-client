@@ -1,4 +1,4 @@
-const config = {
+module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -8,7 +8,7 @@ const config = {
       jsx: true,
     },
   },
-  plugins: ['@typescript-eslint', 'react', 'react-native', 'prettier'] as any, // 타입 강제 우회 필요 시 `as any` 추가 가능
+  plugins: ['@typescript-eslint', 'react', 'react-native', 'prettier'],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
@@ -35,5 +35,3 @@ const config = {
     'react-native/react-native': true,
   },
 };
-
-export default config;

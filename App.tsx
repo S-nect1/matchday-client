@@ -1,22 +1,26 @@
+import { useFonts } from 'expo-font';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native';
+import { ThemeProvider } from 'styled-components/native';
+import { Theme } from './src/styles/theme';
+import Input from './src/components/@common/Input';
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    'pretendard-variable': require('./assets/fonts/PretendardVariable.ttf'),
+    'commutersans-semibold': require('./assets/fonts/Fontspring-DEMO-commuterssans-semibold.otf'),
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ThemeProvider theme={Theme}>
+      <SafeAreaView>
+        <StatusBar style="auto" />
+        <Input />
+      </SafeAreaView>
+    </ThemeProvider>
   );
 }
-
-const white = '#fff';
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    backgroundColor: white,
-    flex: 1,
-    justifyContent: 'center',
-  },
-});
